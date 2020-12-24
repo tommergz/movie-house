@@ -1,0 +1,12 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.movie-houses-filter-block {
+  position: absolute;
+  z-index: 1;
+  top: 45px;
+  left: 0px;
+}

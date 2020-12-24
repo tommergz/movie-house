@@ -1,0 +1,7 @@
+.filters {
+  position: relative;
+}
+
+.movie-list-wrapper {
+  display: flex;
+}

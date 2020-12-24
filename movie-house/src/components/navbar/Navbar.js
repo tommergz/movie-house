@@ -5,15 +5,15 @@ import './Navbar.css';
 
 const Navbar = () => {
   return (
-    <div className="navbar">
+    <div className="header-navbar">
       <div className="logo-wrapper">
         <Link to="/">
-          <img src={logo} alt="logo" className="navbar-logo" />
+          <img src={logo} alt="logo" className="header-navbar-logo mr-3" />
         </Link>
       </div>
-      <ul className="navbar-nav">
+      <ul className="header-navbar-nav">
         <li className="nav-item">
-          <Link to="/" className="link">
+          <Link to="/">
             Афиша
           </Link>   
         </li>
@@ -23,11 +23,11 @@ const Navbar = () => {
           </Link>   
         </li>
       </ul>
-      <div className="cart-button-wrapper">
+      <div className="cart-button-wrapper ml-auto">
         <Link to="/cart">
           <button className="cart-button">
             <i className="fas fa-cart-plus"></i>
-            <span className="cart-button-txt">My Cart</span>
+            <span className="cart-button-txt">Корзина</span>
           </button>
         </Link>
       </div>
