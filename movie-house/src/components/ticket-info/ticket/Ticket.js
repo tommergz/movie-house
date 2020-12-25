@@ -6,14 +6,8 @@ import ConsumerHoc from '../../hocs/ConsumerHoc';
 const Ticket = ({value, movie}) => {
   const {date} = movie;
   return (
-    <div className="ticket mr-4">
-      <span>
-        {date[0]}
-      </span>
-      <span> / </span>
-      <span>
-        {date[1]}
-      </span>
+    <div className="ticket ml-4 d-flex align-items-center">
+      {date[1]}
     </div>
   )
 }
