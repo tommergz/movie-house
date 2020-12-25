@@ -5,8 +5,8 @@ const Context = React.createContext();
 
 class MoviesProvider extends Component {
   state = {
-    movies: [],
-    movieHouses: [],
+    movies: [...moviesData],
+    movieHouses: [...movieHouses],
     chosenMovieHouses: [],
     filterByDate: '',
     firleredTicketsByDate: '',
