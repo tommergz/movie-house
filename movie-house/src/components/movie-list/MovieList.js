@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './MovieList.css';
 import ConsumerHoc from '../hocs/ConsumerHoc';
 import Movie from '../movie/Movie';
@@ -6,11 +6,15 @@ import DatePicker from '../date-picker/DatePicker';
 import FilterComponent from '../filter-component/FilterComponent';
 import CheckBox from '../check-box/CheckBox';
 
-const MovieList = ({value}) => {
+const MovieList = ({value, filterByDate, resetDateFilter}) => {
+
+  useEffect(() => resetDateFilter(), [filterByDate, resetDateFilter]);
+
   const movieHouses = {
     title: 'Кинотеатры',
     content: <MovieHousesList value={value} />
   }
+
   return (
     <div className="movie-block-wrapper">
       <div className="filters">
@@ -27,7 +31,19 @@ const MovieList = ({value}) => {
 }
 
 const Movies = ({value}) => {
-  let movies = value.movies;
+  function unique(movies) {
+    let hash = [];
+    let result = [];
+    for (let movie of movies) {
+      let header = movie.header;
+      if (!hash.includes(header)) {
+        hash.push(header);
+        result.push(movie);
+      }
+    }
+    return result;
+  }
+  let movies = [...value.movies];
   const chosenMovieHouses = value.chosenMovieHouses;
   const filterByDate = value.filterByDate;
   if (chosenMovieHouses.length) {
@@ -43,6 +59,7 @@ const Movies = ({value}) => {
     const filteredByDateMovies = movies.filter(movie => movie.date[0] === filterByDate);
     movies = filteredByDateMovies;
   }
+  movies = unique(movies);
   return movies.map(movie => {
     return <Movie key={movie.id} movie={movie} />
   })

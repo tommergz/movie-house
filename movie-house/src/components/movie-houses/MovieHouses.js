@@ -3,7 +3,7 @@ import React from 'react'
 const MovieHouses = () => {
   return (
     <div>
-      <h1>MOVIE HOUSES</h1>
+      <h1>Кинотеатры</h1>
     </div>
   )
 }

@@ -9,4 +9,9 @@ ul {
   z-index: 1;
   top: 45px;
   left: 0px;
+  display: flex;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.705);
+  color: white;
 }
+

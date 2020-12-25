@@ -9,6 +9,7 @@ class MoviesProvider extends Component {
     movieHouses: [],
     chosenMovieHouses: [],
     filterByDate: '',
+    firleredTicketsByDate: '',
     cart: [],
     cartTotal: 0
   }

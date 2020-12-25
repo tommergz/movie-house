@@ -8,6 +8,7 @@ const Movie = ({value, movie}) => {
     // id, 
     // movieHouse, 
     // title, 
+    header,
     // description, 
     // seats,
     // inCart,
@@ -18,7 +19,7 @@ const Movie = ({value, movie}) => {
   } = movie;
   return (
     <div className="movie col-9 col-md-6 col-lg-3 my-3">
-      <Link to="/tickets">
+      <Link to={`/ticket-info/${header}`}>
         <img src={img} alt="poster" className="poster" />
       </Link>
     </div>

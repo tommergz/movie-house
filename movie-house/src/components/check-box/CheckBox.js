@@ -6,15 +6,18 @@ const CheckBox = ({label, isChecked, value}) => {
   const {toggleCheckboxChange} = value; 
   // const [isChecked, setIsChecked] = useState(false);
   return (
-    <div className="checkbox">
-      <label>
+    <div className="checkbox m-3">
+      <label className="d-flex align-items-center">
         <input
+          className="checkbox-input"
           type="checkbox"
           value={label}
           checked={isChecked}
           onChange={toggleCheckboxChange}
         />
-        {label}
+        <span className="ml-2">
+          {label}
+        </span>
       </label>
     </div>
   );
