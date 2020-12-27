@@ -8,6 +8,7 @@ import MovieList from '../movie-list/MovieList';
 import MovieHouses from '../movie-houses/MovieHouses';
 import Cart from '../cart/Cart';
 import TicketInfo from '../ticket-info/TicketInfo';
+import Booking from '../booking/Booking';
 
 function App({value}) {
   return (
@@ -26,6 +27,7 @@ function App({value}) {
           }} 
         />
       </Switch>
+      <Booking />
     </div>
   );
 }

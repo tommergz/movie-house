@@ -5,6 +5,8 @@ const Context = React.createContext();
 
 class MoviesProvider extends Component {
   state = {
+    movie: null,
+    showMovie: false,
     movies: [...moviesData],
     movieHouses: [...movieHouses],
     chosenMovieHouses: [],
@@ -73,6 +75,25 @@ class MoviesProvider extends Component {
     })
   }
 
+  getMovie = id => {
+    const movie = this.state.movies.find(movie => movie.id === id);
+    return movie;
+  }
+
+  showMovieMethod = id => {
+    const movie = this.getMovie(id);
+    this.setState({
+      movie: movie,
+      showMovie: true
+    })
+  }
+
+  closeMovieMethod = () => {
+    this.setState({
+      showMovie: false
+    })
+  }
+
   render() {
     return (
       <Context.Provider
@@ -80,7 +101,9 @@ class MoviesProvider extends Component {
           ...this.state,
           toggleCheckboxChange: this.toggleCheckboxChange,
           filterByDateMethod: this.filterByDateMethod,
-          resetDateFilter: this.resetDateFilter
+          resetDateFilter: this.resetDateFilter,
+          showMovieMethod: this.showMovieMethod,
+          closeMovieMethod: this.closeMovieMethod
         }}
       >
         {this.props.children}

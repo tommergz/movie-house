@@ -1,0 +1,59 @@
+.booking-info-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-info {
+  position: relative;
+  background: white;
+  width: 80%;
+  height: 80%;
+}
+
+.header-info {
+  padding: 20px 20px 0;
+}
+
+.movie-house-title {
+  font-size: 1.2rem;
+}
+
+.seats {
+  padding: 50px 0;
+}
+
+.booked-seat {
+  width: 20px;
+  height: 20px;
+  background: rgb(158, 158, 158);
+  border: 0.05rem solid black;
+}
+
+.empty-seat {
+  width: 20px;
+  height: 20px;
+  background: rgb(255, 255, 255);
+  border: 0.05rem solid black;
+}
+
+.chosen-seat {
+  width: 20px;
+  height: 20px;
+  background: rgb(29, 221, 3);
+  border: 0.05rem solid black;
+}
+
+.close-window {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 40px;
+  cursor: pointer;
+}

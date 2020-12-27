@@ -31,7 +31,7 @@ const MovieList = ({value, filterByDate, resetDateFilter}) => {
 }
 
 const Movies = ({value}) => {
-  function unique(movies) {
+  const unique = (movies) => {
     let hash = [];
     let result = [];
     for (let movie of movies) {
