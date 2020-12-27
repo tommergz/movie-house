@@ -6,7 +6,7 @@ const DatePicker = ({value}) => {
   const {filterByDate, filterByDateMethod, resetDateFilter} = value;
   return (
     <div className="date-picker-wrapper">
-      <form className="filter-form" onChange={filterByDateMethod}>
+      <form className="filter-form" onSubmit={filterByDateMethod}>
         <div id="date-input-wrapper" className="date-input">
           <DateMaker filterByDate={filterByDate} />
         </div>
