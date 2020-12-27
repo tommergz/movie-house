@@ -17,6 +17,16 @@
   height: 80%;
 }
 
+.booking-info-block {
+  width: 100%;
+}
+
+.price {
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .header-info {
   padding: 20px 20px 0;
 }
@@ -27,6 +37,9 @@
 
 .seats {
   padding: 50px 0;
+  margin: 20px;
+  border-top: 0.05rem solid black;
+  border-bottom: 0.05rem solid black;
 }
 
 .booked-seat {
@@ -56,4 +69,16 @@
   right: 0;
   font-size: 40px;
   cursor: pointer;
+}
+
+.hint {
+  padding: 0 20px;  
+}
+
+.screen {
+  text-align: center;
+  border: 0.1rem solid black;
+  line-height: 40px;
+  color: white;
+  background: black;
 }

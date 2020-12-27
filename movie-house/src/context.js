@@ -13,7 +13,8 @@ class MoviesProvider extends Component {
     filterByDate: '',
     firleredTicketsByDate: '',
     cart: [],
-    cartTotal: 0
+    cartTotal: 0,
+    tickets: 0
   }
 
   componentDidMount() {
@@ -25,7 +26,7 @@ class MoviesProvider extends Component {
     const allMovieHouses = [...movieHouses];
     moviesData.forEach(item => {
       const movie = {...item};
-      movies = [...movies, movie]
+      movies.push(movie)
     });
     this.setState({
       movies: movies,
@@ -94,6 +95,86 @@ class MoviesProvider extends Component {
     })
   }
 
+  makeSeatsCopy = (arr) => {
+    return arr.map(row => {
+      const newRow = [...row]
+      return newRow.map(item => {
+        return {...item}
+      })
+    })
+  }
+
+  bookingSeat = (movie, newSeats) => {
+    let movies = [];
+
+    this.state.movies.forEach(item => {
+      const movie = {...item};
+      movies.push(movie)
+    });
+
+    movies = movies.map(el => {
+      if (el.id === movie.id) {
+        el.seats = newSeats;
+      }
+      return el
+    })
+    return movies;
+  }
+
+  changeSeats = (rowIndex, index, seat, movie) => {
+    const newSeats = this.makeSeatsCopy([...movie.seats]);
+    if (seat === true) {
+      newSeats[rowIndex][index].empty = 'chosen';
+      this.setState(({tickets}) => {
+        const movies = this.bookingSeat(movie, newSeats);
+        const updatedMovie = movies.find(item => item.id === movie.id);
+        return {
+          movie: updatedMovie,
+          movies: movies,
+          tickets: tickets + 1
+        }
+      })
+    } else {
+      newSeats[rowIndex][index].empty = true;
+      this.setState(({tickets}) => {
+        const movies = this.bookingSeat(movie, newSeats);
+        const updatedMovie = movies.find(item => item.id === movie.id);
+        return {
+          movie: updatedMovie,
+          movies: movies,
+          tickets: tickets - 1
+        }
+      })
+    }
+  }
+
+  addToCart = (seats, movie) => {
+    const tickets = [];
+    seats.forEach((row, index) => {
+      let rowIndex = index;
+      row.forEach((el, index) => {
+
+        if (el.empty === 'chosen') {
+          const myCart = this.state.cart;
+          const movieIdx = myCart.findIndex(
+            (el) => el.id === movie.id && 
+            el.place[0] === rowIndex && 
+            el.place[1] === index
+          );
+          if (movieIdx === -1) tickets.push({...movie, place: [rowIndex, index], ticketId: rowIndex + index});
+        }
+      });
+    });
+    const totalPrice = tickets.length * movie.price;
+
+    this.setState(({cart, cartTotal}) => {
+      return {
+        cart: cart.concat(tickets),
+        cartTotal: cartTotal + totalPrice
+      }
+    })
+  }
+
   render() {
     return (
       <Context.Provider
@@ -103,7 +184,9 @@ class MoviesProvider extends Component {
           filterByDateMethod: this.filterByDateMethod,
           resetDateFilter: this.resetDateFilter,
           showMovieMethod: this.showMovieMethod,
-          closeMovieMethod: this.closeMovieMethod
+          closeMovieMethod: this.closeMovieMethod,
+          changeSeats: this.changeSeats,
+          addToCart: this.addToCart
         }}
       >
         {this.props.children}

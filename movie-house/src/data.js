@@ -27,7 +27,7 @@ export const moviesData = [
     inCart: false,
     count: 0,
     price: 10,
-    date: ['2021-01-07', '20:00']
+    date: ['2021-01-04', '20:00']
   },
   {
     id: 1,
