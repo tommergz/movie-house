@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import './MovieHouses.css';
 
 const MovieHouses = () => {
   return (
     <div>
-      <h1>Кинотеатры</h1>
+      <h1 className="movie-houses-h-text">Кинотеатры</h1>
     </div>
   )
 }

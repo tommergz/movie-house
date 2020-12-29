@@ -14,12 +14,14 @@ const TicketInfo = ({header, value}) => {
       <div className="info d-flex">
       <img src={img} alt="poster" className="movie-poster" />
         <div className="movie-description ml-4">
-          <h1>{title}</h1>
-          <h2>Цена билета: {price}$</h2>
+          <h1 className="movie-title">{title}</h1>
+          <h3 className="movie-price">Цена билета: {price}$</h3>
           <DatePicker />
         </div>
       </div>
-      <h2 className="tixets-h py-2 m-0">Билеты:</h2>
+      <div className="tixets-head">
+        <h2 className="tickets-text py-2 m-0">Билеты: </h2>
+      </div>
       <div className="tickets d-flex flex-column">
         <Tickets value={value} movies={movies}/>
       </div>
@@ -51,7 +53,7 @@ const Tickets = ({value, movies}) => {
   return movieHouses.map(movies => {
     return (
       <div key={movies[0].id + 10} className="movie-house-tickets d-flex py-2">
-        <h2 className="movie-house-name">{movies[0].movieHouse}: </h2>
+        <h2 className="movie-house-name">{movies[0].movieHouse}:</h2>
         {movies.map(movie => {
           return <Ticket key={movie.id} movie={movie} />
         })}

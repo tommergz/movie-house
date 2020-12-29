@@ -5,9 +5,10 @@ import ConsumerHoc from '../hocs/ConsumerHoc';
 const Cart = ({value}) => {
   const price = value.cartTotal;
   const cartTotal = price ? 
-    <h1 className="">Стоимость: {price}$</h1> : null
+    <h3 className="">Стоимость: {price}$</h3> : null
   return (
     <div>
+      <h1 className="cart-header">Билеты</h1>
       {cartTotal}
       <Tickets value={value} />
     </div>
@@ -25,7 +26,7 @@ const Tickets = ({value}) => {
       date,
       place
     } = ticket;
-    console.log(ticketId + index + Date.now().toString())
+    
     return (
       <div className="chosen-ticket p-2 my-2" key={id + ticketId + new Date(date).valueOf()}>
         <div className="d-flex flex-column">

@@ -5,7 +5,7 @@ const FilterComponent = (props) => {
   const [open, setOpen] = useState(false);
   return (
     <div className="nav-item ml-2">
-      <button onClick={() => setOpen(!open)}>
+      <button className="filter-button" onClick={() => setOpen(!open)}>
         {props.children.title}
       </button>
 

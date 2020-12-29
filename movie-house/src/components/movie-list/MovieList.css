@@ -2,6 +2,20 @@
   position: relative;
 }
 
-.movie-list-wrapper {
-  display: flex;
+@media (max-width: 600px) {
+  .filters {
+    align-items: center;
+    margin-top: 80px;
+  }
+  .date-picker-wrapper, .filter-form, .filters {
+    flex-direction: column; 
+    margin-bottom: 10px;
+  }
+  .filter-button, .reset {
+    width: 260px !important;
+    margin-left: 0 !important;
+  }
+  .nav-item {
+    margin-left: 0 !important;
+  }
 }

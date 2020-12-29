@@ -1,3 +1,10 @@
 .chosen-ticket {
   border: 0.1rem solid black;
 }
+
+@media (max-width: 600px) {
+  .cart-header {
+    margin-top: 80px;
+    text-align: center;
+  }
+}

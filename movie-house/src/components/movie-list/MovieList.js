@@ -23,7 +23,7 @@ const MovieList = ({value, filterByDate, resetDateFilter}) => {
           {movieHouses}
         </FilterComponent>
       </div>
-      <div className="movie-list-wrapper row">
+      <div className="movie-list-wrapper row d-flex justify-content-center">
         <Movies value={value} />
       </div>
     </div>

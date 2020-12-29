@@ -77,18 +77,23 @@ const Booking = ({value}) => {
               <h2 className="m-0">{title}</h2>
               <p className="movie-house-title m-0">Кинотеатр {movieHouse}</p>
               <p className="m-0">Дата: {date[0]} / {date[1]}</p>
-              <div className="d-flex">
-                <p className="price m-0">Количество билетов: {tickets} Стоимость: {tickets * price}$</p>
-                <Link to="/cart">
-                  <button onClick={
-                    () => {
-                      addToCart(movie.seats, movie)
-                      closeMovieMethod()
-                    }
-                  }>
-                    Добавить
-                  </button>
-                </Link>
+              <div className="ticket-price-info d-flex justify-content-between">
+                <div className="tickets-price-wrapper d-flex">
+                  <p className="price m-0">Количество билетов: {tickets}</p>
+                  <p className="price m-0">Стоимость: {tickets * price}$</p>
+                </div>
+                <div className="add-tickets-button">
+                  <Link to="/cart">
+                    <button onClick={
+                      () => {
+                        addToCart(movie.seats, movie)
+                        closeMovieMethod()
+                      }
+                    }>
+                      Добавить
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

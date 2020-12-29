@@ -6,10 +6,71 @@
   width: 150px;
 }
 
-.tixets-h {
+.tixets-head {
   border-bottom: 0.05rem solid rgb(0, 0, 0);
 }
 
 .movie-house-tickets {
   border-bottom: 0.05rem solid rgb(0, 0, 0);
+}
+
+@media (max-width: 760px) {
+  .info {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+  }
+  
+  .movie-description {
+    margin: 10px 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info {
+    margin-top: 0 !important;
+  }
+
+  .movie-title {
+    text-align: center;
+  }
+
+  .movie-price {
+    margin-bottom: 20px;
+  }
+
+  .movie-house-tickets {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ticket {
+    margin-left: 0 !important;
+  }
+
+  .tixets-head {
+    display: flex;
+    justify-content: center;
+  }
+
+  .tickets-text {
+    padding-top: 0 !important;
+  }
+
+  .ticket {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .info {
+    margin-top: 80px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .movie-poster {
+    width: 260px;
+  }
 }

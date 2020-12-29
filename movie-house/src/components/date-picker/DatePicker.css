@@ -29,3 +29,9 @@ span {
 .react-datepicker__input-container:first-child {
   width: 160px;
 }
+
+@media (max-width: 600px) {
+  .input-for-date {
+    margin-bottom: 10px;
+  }
+}

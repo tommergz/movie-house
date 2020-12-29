@@ -161,7 +161,7 @@ class MoviesProvider extends Component {
             el.place[0] === rowIndex && 
             el.place[1] === index
           );
-          if (movieIdx === -1) tickets.push({...movie, place: [rowIndex, index], ticketId: rowIndex + index});
+          if (movieIdx === -1) tickets.push({...movie, place: [rowIndex, index], ticketId: rowIndex * 10 + index});
         }
       });
     });
