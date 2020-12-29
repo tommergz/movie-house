@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Booking.css';
 import logo from '../../assets/icons/clapperboard_cinema.svg';
 import ConsumerHoc from '../hocs/ConsumerHoc';
 
 const Booking = ({value}) => {
-  const {movie, showMovie, closeMovieMethod, changeSeats, tickets} = value;
+  const {movie, showMovie, closeMovieMethod, changeSeats} = value;
   // const [chosenTickets, setTickets] = useState(0);
   // const bookingSeat = (seat) => {
   //   if (seat === true) {
