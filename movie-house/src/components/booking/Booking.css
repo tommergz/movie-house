@@ -65,8 +65,8 @@
 
 .close-window {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 1px;
+  right: 3px;
   font-size: 40px;
   cursor: pointer;
 }

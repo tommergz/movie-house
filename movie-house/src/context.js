@@ -175,6 +175,36 @@ class MoviesProvider extends Component {
     })
   }
 
+  filterFunction(ticket) {
+    if (ticket.id === this.id) {
+      return ticket.place[0] !== this.place[0] ||
+      ticket.place[1] !== this.place[1]  
+    } else {
+      return true
+    }
+  }
+
+  removeTicket = (id, place, price) => {
+    const index = this.state.movies.findIndex((el) => el.id === id);
+    const movies = [...this.state.movies];
+    const newSeats = this.makeSeatsCopy([...this.state.movies[index].seats]);
+    newSeats[place[0]][place[1]].empty = true;
+    movies.seats = newSeats;
+
+    const cart = [...this.state.cart];
+    const ticket = {id: id, place: place};
+    const filteredCart = cart.filter(this.filterFunction, ticket);
+      
+    this.setState(({tickets, cartTotal}) => {
+      return {
+        movies: movies,
+        tickets: tickets - 1,
+        cart: filteredCart,
+        cartTotal: cartTotal - price
+      }
+    })
+  }
+
   render() {
     return (
       <Context.Provider
@@ -186,7 +216,8 @@ class MoviesProvider extends Component {
           showMovieMethod: this.showMovieMethod,
           closeMovieMethod: this.closeMovieMethod,
           changeSeats: this.changeSeats,
-          addToCart: this.addToCart
+          addToCart: this.addToCart,
+          removeTicket: this.removeTicket
         }}
       >
         {this.props.children}
