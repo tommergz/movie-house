@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import './Booking.css';
 import logo from '../../assets/icons/clapperboard_cinema.svg';
@@ -6,6 +6,21 @@ import ConsumerHoc from '../hocs/ConsumerHoc';
 
 const Booking = ({value}) => {
   const {movie, showMovie, closeMovieMethod, changeSeats, tickets} = value;
+  // const [chosenTickets, setTickets] = useState(0);
+  // const bookingSeat = (seat) => {
+  //   if (seat === true) {
+  //     setTickets(chosenTickets + 1)
+  //   } else {
+  //     setTickets(chosenTickets - 1)
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   if (movie) {
+  //     setTickets(0)
+  //   }
+  // }, [movie])
+
   // const [seats, setSeats] = useState([]);
   // const makeSeatsCopy = (arr) => {
   //   return arr.map(row => {
@@ -49,12 +64,12 @@ const Booking = ({value}) => {
     //   setSeats(newSeats)
     // } 
 
-    // let count = 0;
-    // movie.seats.forEach(row => {
-    //   row.forEach(el => {
-    //     if (el.empty === 'chosen') count +=1;
-    //   });
-    // });
+    let count = 0;
+    movie.seats.forEach(row => {
+      row.forEach(el => {
+        if (el.empty === 'chosen') count +=1;
+      });
+    });
 
     return (
       <div className="booking-info-wrapper">
@@ -79,8 +94,8 @@ const Booking = ({value}) => {
               <p className="m-0">Дата: {date[0]} / {date[1]}</p>
               <div className="ticket-price-info d-flex justify-content-between">
                 <div className="tickets-price-wrapper d-flex">
-                  <p className="price m-0">Количество билетов: {tickets}</p>
-                  <p className="price m-0">Стоимость: {tickets * price}$</p>
+                  <p className="price m-0">Количество билетов: {count}</p>
+                  <p className="price m-0">Стоимость: {count * price}$</p>
                 </div>
                 <div className="add-tickets-button">
                   <Link to="/cart">
@@ -98,7 +113,7 @@ const Booking = ({value}) => {
             </div>
           </div>
           <div className="seats d-flex flex-column align-items-center">
-            <Seats seats={movie.seats} movie={movie} changeSeats={changeSeats}/>
+            <Seats seats={movie.seats} movie={movie} changeSeats={changeSeats} />
           </div>
           <div className="hint d-flex">
             <div className="d-flex align-items-center mr-2">
@@ -163,7 +178,13 @@ const Seats = ({seats, movie, changeSeats}) => {
 const Seat = ({movie, rowIndex, index, changeSeats, seat}) => {
   const content = seat === 'chosen' ? 'chosen-seat' : 'empty-seat';
   return (
-    <div className={content} onClick={() => changeSeats(rowIndex, index, seat, movie)}></div>
+    <div 
+      className={content} 
+      onClick={
+        () => {
+          changeSeats(rowIndex, index, seat, movie)
+        }
+      }></div>
   )
 }
 

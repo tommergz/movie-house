@@ -5,7 +5,7 @@ import ConsumerHoc from '../hocs/ConsumerHoc';
 const Cart = ({value}) => {
   const price = value.cartTotal;
   const cartTotal = price ? 
-    <h3 className="">Стоимость: {price}$</h3> : null
+    <h3>Стоимость: {price}$</h3> : null
   return (
     <div>
       <h1 className="cart-header">Билеты</h1>
