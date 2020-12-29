@@ -108,3 +108,10 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 600px) {
+  .hint {
+    height: 70px;
+    flex-wrap: wrap;
+  }
+}

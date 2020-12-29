@@ -8,6 +8,10 @@
   padding: 5px;
 }
 
+.input-for-date {
+  border: 1px solid black;
+}
+
 .filter {
   display: flex;
   flex-direction: column;
