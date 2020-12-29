@@ -2,6 +2,12 @@
   position: relative;
 }
 
+@media (max-width: 768px) {
+  .movie-list-wrapper {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 600px) {
   .filters {
     align-items: center;
