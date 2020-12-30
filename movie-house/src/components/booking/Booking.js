@@ -115,7 +115,7 @@ const Booking = ({value}) => {
           <div className="seats d-flex flex-column align-items-center">
             <Seats seats={movie.seats} movie={movie} changeSeats={changeSeats} />
           </div>
-          <div className="hint d-flex">
+          <div className="hint d-flex mb-3">
             <div className="d-flex align-items-center mr-2">
               <div className="empty-seat mr-2"></div><span>- место свободно</span>
             </div>
